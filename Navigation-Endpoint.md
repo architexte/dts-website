@@ -1,13 +1,5 @@
----
-layout: page
-title: "Guidelines"
-heahder: "Guidelines"
-group: navigation
-description: ""
----
 {% include toc.html html=content %}
 
-**Index :**
 
 # Distributed Text Services API - Navigation Endpoint
 
