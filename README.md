@@ -1,7 +1,9 @@
+{% include toc.html html=content %}
+
 # Distributed Text Services (DTS)
 
 ## PROJET ET SITE TEST
-** Test (jetable) pour la génération du site de documentation DTS: contenu repris sur le site de référence https://github.com/distributed-text-services/specifications ** 
+** Test (jetable) pour la génération du site de documentation DTS: contenu repris sur le site de référence https://github.com/distributed-text-services/specifications **
 
 *The DTS Specification is currently in Candidate Recommendation Status.*
 

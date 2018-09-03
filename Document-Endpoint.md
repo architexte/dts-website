@@ -1,3 +1,5 @@
+{% include toc.html html=content %}
+
 # Distributed Text Services API : Document Endpoint
 
 The documents endpoint is used to access the data for documents, as opposed to metadata (which is found in collections).  The representation of a document is up to the implementation.
@@ -20,7 +22,7 @@ The documents endpoint is used to access the data for documents, as opposed to m
 - If the request returns a complete document, it is returned directly, without a `dts:fragment` element.
 - There is no limitation to what can be contained by `dts:fragment` or what its siblings can be. The only limiting factor is that `dts:fragment` should contain the requested fragment. This permits an implementation to return contextual material elsewhere in the document alongside the requested fragment.  
 
-## URI 
+## URI
 
 ### Query Parameters
 
@@ -101,16 +103,16 @@ Here is a template of the URI for Document API. The route itself (`/dts/api/docu
 
 Retrieve the passage `2` of `bgu;11;2029`
 
-#### Example of url : 
+#### Example of url :
 
 - GET `/dts/api/documents/?id=bgu;11;2029&ref=2`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/tei+xml |
-| Link | </dts/api/documents/?id=bgu;11;2029&ref=1>; rel="prev", </dts/api/documents/?id=bgu;11;2029&ref=3>; rel="next", </dts/api/documents/?id=bgu;11;2029&ref=6>; rel="last", </dts/api/navigation/?id=bgu;11;2029>; rel="contents", </dts/api/collection/?id=bgu;11;2029>; rel="collection" | 
+| Link | </dts/api/documents/?id=bgu;11;2029&ref=1>; rel="prev", </dts/api/documents/?id=bgu;11;2029&ref=3>; rel="next", </dts/api/documents/?id=bgu;11;2029&ref=6>; rel="last", </dts/api/navigation/?id=bgu;11;2029>; rel="contents", </dts/api/collection/?id=bgu;11;2029>; rel="collection" |
 
 #### Response
 
@@ -136,7 +138,7 @@ Retrieve the passage `2` of `bgu;11;2029`
       </fileDesc>
    </teiHeader>
    <dts:fragment xmlns:dts="https://w3id.org/dts/api#">
-    <lb n="1"/><expan>τετελ<ex>ώνηται</ex></expan> <expan>δι<ex>ὰ</ex></expan> <expan>πύλ<ex>ης</ex></expan> Διονυσιάδος 
+    <lb n="1"/><expan>τετελ<ex>ώνηται</ex></expan> <expan>δι<ex>ὰ</ex></expan> <expan>πύλ<ex>ης</ex></expan> Διονυσιάδος
    </dts:fragment>
 </TEI>
 ```
@@ -145,16 +147,16 @@ Retrieve the passage `2` of `bgu;11;2029`
 
 Retrieve the passages 1.1.1 to the passage 1.1.2
 
-#### Example of url : 
+#### Example of url :
 
 - GET `/dts/api/documents/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1&start=1.1.1&end=1.1.2`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/tei+xml |
-| Link | </dts/api/documents/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1&start=1.2.1&end=1.2.2>; rel="next", </dts/api/documents/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1&start=5.5.5&end=5.5.6>; rel="last", </dts/api/navigation/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1>; rel="contents", </dts/api/collection/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1>; rel="collection" | 
+| Link | </dts/api/documents/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1&start=1.2.1&end=1.2.2>; rel="next", </dts/api/documents/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1&start=5.5.5&end=5.5.6>; rel="last", </dts/api/navigation/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1>; rel="contents", </dts/api/collection/?id=urn:cts:latinLit:phi1318.phi001.perseus-lat1>; rel="collection" |
 
 #### Response
 
@@ -187,16 +189,16 @@ Retrieve the passages 1.1.1 to the passage 1.1.2
 
 Retrieve the full document bgu;11;2029
 
-#### Example of url : 
+#### Example of url :
 
 - GET `/dts/api/documents/?id=bgu;11;2029`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/tei+xml |
-| Link | </dts/api/navigation/?id=bgu;11;2029>; rel="contents", </dts/api/collection/?id=bgu;11;2029>; rel="collection" | 
+| Link | </dts/api/navigation/?id=bgu;11;2029>; rel="contents", </dts/api/collection/?id=bgu;11;2029>; rel="collection" |
 
 #### Response
 
@@ -249,15 +251,15 @@ Retrieve the full document bgu;11;2029
             <placeName>Dionysias</placeName>
          </head>
          <div xml:lang="grc" type="edition" xml:space="preserve"><ab>
-    <lb n="1"/><expan>τετελ<ex>ώνηται</ex></expan> <expan>δι<ex>ὰ</ex></expan> <expan>πύλ<ex>ης</ex></expan> Διονυσιάδος 
+    <lb n="1"/><expan>τετελ<ex>ώνηται</ex></expan> <expan>δι<ex>ὰ</ex></expan> <expan>πύλ<ex>ης</ex></expan> Διονυσιάδος
 
-    <lb n="2"/>λιμένος Μέμφεως Ζώσιμος 
+    <lb n="2"/>λιμένος Μέμφεως Ζώσιμος
 
-    <lb n="3"/><expan><supplied reason="lost">ἐ</supplied><unclear>ξ</unclear>ά<ex>γων</ex></expan> <supplied reason="lost"><expan>ἐ<ex>πὶ</ex></expan> </supplied><expan><supplied reason="lost">κα</supplied>μ<ex>ή</ex>λ<ex>οις</ex></expan> δυσὶ <num value="2"/> ἐλαίου <expan>μετ<ex>ρητὰς</ex></expan> ἐννέα <num value="9"/> 
+    <lb n="3"/><expan><supplied reason="lost">ἐ</supplied><unclear>ξ</unclear>ά<ex>γων</ex></expan> <supplied reason="lost"><expan>ἐ<ex>πὶ</ex></expan> </supplied><expan><supplied reason="lost">κα</supplied>μ<ex>ή</ex>λ<ex>οις</ex></expan> δυσὶ <num value="2"/> ἐλαίου <expan>μετ<ex>ρητὰς</ex></expan> ἐννέα <num value="9"/>
 
-    <lb n="4"/><gap reason="lost" quantity="4" unit="character"/><unclear>ρ</unclear>αχ<add place="above">ε</add> τεσσεράκοντα πέντε <num value="45"/> 
+    <lb n="4"/><gap reason="lost" quantity="4" unit="character"/><unclear>ρ</unclear>αχ<add place="above">ε</add> τεσσεράκοντα πέντε <num value="45"/>
 
-    <lb n="5"/><supplied reason="lost"><expan><ex>ἔτους</ex></expan> </supplied><gap reason="lost" quantity="1" unit="character"/><supplied reason="lost"> Ἀντ</supplied>ωνείνου καὶ Οὐήρου τῶν κυρίων 
+    <lb n="5"/><supplied reason="lost"><expan><ex>ἔτους</ex></expan> </supplied><gap reason="lost" quantity="1" unit="character"/><supplied reason="lost"> Ἀντ</supplied>ωνείνου καὶ Οὐήρου τῶν κυρίων
 
     <lb n="6"/><supplied reason="lost">Σεβασ</supplied>τῶν Μεσορὴ ἑκκαιδεκάτῃ. </ab></div>
       </body>

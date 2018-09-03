@@ -1,3 +1,5 @@
+{% include toc.html html=content %}
+
 # Distributed Text Services API - Collections Endpoint
 
 The collections endpoint is used for navigating collections. A collection contains metadata for the collection itself and an array of members.  Each member is either a collection or the metadata for a document.
@@ -6,7 +8,7 @@ DTS does not specify URLs. Clients should discover URLs using navigation and lin
 
 ### Hydra Representation and Hierarchy
 
-DTS does not specify any particular hierarchy of collections. A collection might provide all documents in a flat collection or a collection hierarchy organized by geography, time, or any other convenient logical grouping. 
+DTS does not specify any particular hierarchy of collections. A collection might provide all documents in a flat collection or a collection hierarchy organized by geography, time, or any other convenient logical grouping.
 
 ## Scheme
 
@@ -32,7 +34,7 @@ Item properties :
 - (Optional) `dts:download` contains a link or a list of links to a downloadable format of the object (TODO: decide on link or map of type:URL)
 - (Optional) `dts:citeStructure` holds a declared citation tree, see [Sub-collection readable](#sub-collection-readable)
 
-## URI 
+## URI
 
 ### Query Parameters
 
@@ -78,14 +80,14 @@ Here is a template of the URI for Collection API. The route itself (`/dts/api/co
 
 ### Root collection
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/collections/`
 - `/api/dts/collections/?id=general`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -138,13 +140,13 @@ Here is a template of the URI for Collection API. The route itself (`/dts/api/co
 
 ### Sub-collection, not readable but small
 
-### Example of url : 
+### Example of url :
 
 - `/api/dts/collections/?id=lasciva_roma`
 
 ### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -204,15 +206,15 @@ Here is a template of the URI for Collection API. The route itself (`/dts/api/co
 
 #### Note
 
-Although, this is optional, the expansion of `@type:Resource`'s metadata is advised to avoid multiple API calls. 
+Although, this is optional, the expansion of `@type:Resource`'s metadata is advised to avoid multiple API calls.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/collections/?id=urn:cts:latinLit:phi1103.phi001`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -288,13 +290,13 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
 
 ### Sub-collection readable
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/collections/?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -335,7 +337,7 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
     "dts:passage": "/api/dts/documents?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
     "dts:references": "/api/dts/navigation?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
     "dts:download": "https://raw.githubusercontent.com/lascivaroma/priapeia/master/data/phi1103/phi001/phi1103.phi001.lascivaroma-lat1.xml",
-    "dts:citeDepth": 2, 
+    "dts:citeDepth": 2,
     "dts:citeStructure": [
         {
             "dts:citeType": "poem",
@@ -367,7 +369,7 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
     "dts:passage": "/api/dts/documents?id=https://digitallatin.org/ids/Calpurnius_Siculus-Bucolica",
     "dts:references": "/api/dts/navigation?id=https://digitallatin.org/ids/Calpurnius_Siculus-Bucolica",
     "dts:download": "https://github.com/sjhuskey/Calpurnius_Siculus/blob/master/editio.xml",
-    "dts:citeDepth": 2, 
+    "dts:citeDepth": 2,
     "dts:citeStructure": [
         {
             "dts:citeType": "front"
@@ -387,13 +389,13 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
 
 ### Paginated sub-collection
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/collections/?id=lettres_de_poilus&page=19`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -435,13 +437,13 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
 
 ### Querying parents
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/collections/?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1&nav=parent`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -482,7 +484,7 @@ Although, this is optional, the expansion of `@type:Resource`'s metadata is advi
     "dts:passage": "/api/dts/documents?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
     "dts:references": "/api/dts/navigation?id=urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
     "dts:download": "https://raw.githubusercontent.com/lascivaroma/priapeia/master/data/phi1103/phi001/phi1103.phi001.lascivaroma-lat1.xml",
-    "dts:citeDepth": 2, 
+    "dts:citeDepth": 2,
     "dts:citeStructure": [
         {
             "dts:citeType": "poem",
