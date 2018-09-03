@@ -1,3 +1,17 @@
+---
+layout: page
+title: "Guidelines"
+heahder: "Guidelines"
+group: navigation
+description: ""
+---
+{% include JB/setup %}
+
+**Index :**
+
+* TOC
+{:toc}
+
 # Distributed Text Services API - Navigation Endpoint
 
 The Navigation endpoint provides a list of passages that are available for a given resource. Its direction is parent-to-child by default.
