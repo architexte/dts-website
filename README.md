@@ -1,5 +1,3 @@
-{% include toc.html html=content %}
-
 # Distributed Text Services (DTS)
 
 ## PROJET ET SITE TEST
