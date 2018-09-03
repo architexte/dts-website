@@ -5,12 +5,9 @@ heahder: "Guidelines"
 group: navigation
 description: ""
 ---
-{% include JB/setup %}
+{% include toc.html html=content %}
 
 **Index :**
-
-* TOC
-{:toc}
 
 # Distributed Text Services API - Navigation Endpoint
 
@@ -26,7 +23,7 @@ Item properties :
 - `@base` is the URI of the Document API at which we can retrieve passages
 - `@id` is the ID of the current request
 - `dts:citeDepth` defines the maximum depth of the document, *e.g.* if the a document has up to three levels, `dts:citeDepth` should be three
-- `dts:level` defines the level of the reference given. 
+- `dts:level` defines the level of the reference given.
 - `dts:passage` contains a URI template to the Document endpoint
 - `member` is a list of passages
   - A list of passages can be made of single `ids` : `[{"ref": "a"}, {"ref": "b"}, {"ref": "1.1"}]`
@@ -36,7 +33,7 @@ Item properties :
   - (Optional) `dts:extensions` contains metadata from other namespaces
 
 
-## URI 
+## URI
 
 ### Query Parameters
 
@@ -48,7 +45,7 @@ Item properties :
 | start | (For range) Start of the range passages (inclusive, not to be used with `passage`) | GET |
 | end |  (For range) End of the range of passages (inclusive, requires `start`, not to be used with `passage`) | GET |
 | groupSize | Retrieve passages in groups of this size instead of single units | GET |
-| max | Allows for limiting the number of results and getting pagination | GET | 
+| max | Allows for limiting the number of results and getting pagination | GET |
 | exclude | Exclude keys in members' object such as `exclude=dts:extensions` | GET |
 
 ### Response Headers
@@ -120,13 +117,13 @@ Here is a template of the URI for Collection API. The route itself (`/dts/api/na
 
 The client wants to retrieve a list of passage identifiers that are part of the document *urn:cts:greekLit:tlg0012.tlg001.opp-grc5*.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:greekLit:tlg0012.tlg001.opp-grc5`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -155,13 +152,13 @@ The client wants to retrieve a list of passage identifiers that are part of the 
 
 The client wants to retrieve a list of passage identifiers that are part of the document *urn:cts:greekLit:tlg0012.tlg001.opp-grc5* and can be found at the second level of the citation tree of the document.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:greekLit:tlg0012.tlg001.opp-grc5&level=2`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -193,13 +190,13 @@ The client wants to retrieve a list of passage identifiers that are part of the 
 
 The client wants to retrieve a list of passage identifiers that are part of the document *urn:cts:greekLit:tlg0012.tlg001.opp-grc5* and its passage `1`.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:greekLit:tlg0012.tlg001.opp-grc5&ref=1`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -227,13 +224,13 @@ The client wants to retrieve a list of passage identifiers that are part of the 
 
 The client wants to retrieve a list of grand-children passage identifiers that are part of the document *urn:cts:latinLit:phi1294.phi001.perseus-lat2* and its passage `1`.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:latinLit:phi1294.phi001.perseus-lat2&ref=1&level=2`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -263,13 +260,13 @@ The client wants to retrieve a list of grand-children passage identifiers that a
 
 The client wants to retrieve a list of passage identifiers which are between two milestones.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:greekLit:tlg0012.tlg001.opp-grc5&level=0&start=1&end=3`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -298,13 +295,13 @@ The client wants to retrieve a list of passage identifiers which are between two
 
 The client wants to retrieve a list of passage identifiers which are between two milestones.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:greekLit:tlg0012.tlg001.opp-grc5&level=2&start=1&end=3`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -332,17 +329,17 @@ The client wants to retrieve a list of passage identifiers which are between two
 }
 ```
 
-### Passages grouped by the provider 
+### Passages grouped by the provider
 
 The client wants to retrieve a list of grand-children ranges of two identifiers that are part of the document *urn:cts:latinLit:phi1294.phi001.perseus-lat2* and its passage `1`.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=urn:cts:latinLit:phi1294.phi001.perseus-lat2&ref=1&level=2&groupSize=2`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -367,17 +364,17 @@ The client wants to retrieve a list of grand-children ranges of two identifiers 
 }
 ```
 
-### Retrieval of typology of references 
+### Retrieval of typology of references
 
 Some passages may have a metadata type. The `citeType` refers to the type of citable node has been evaluated as. The node expects a free text or a RDF Class. A default type can be given at the root of the response object.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=http://data.bnf.fr/ark:/12148/cb11936111v`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -414,13 +411,13 @@ Example using *Les Liaisons Dangereuses* by Pierre Choderlos de Laclos
 
 The client wants the list of passages with their title. If the given data provider has a title, then it will be provided.
 
-#### Example of url : 
+#### Example of url :
 
 - `/api/dts/navigation/?id=http://data.bnf.fr/ark:/12148/cb11936111v`
 
 #### Headers
 
-| Key | Value | 
+| Key | Value |
 | --- | ----- |
 | Content-Type | Content-Type: application/ld+json |
 
@@ -439,19 +436,19 @@ Example using *Les Liaisons Dangereuses* by Pierre Choderlos de Laclos
     "dts:level": 1,
     "member": [
       {
-        "ref": "Av", 
+        "ref": "Av",
         "dts:dublincore": {
         "dc:title": "Avertissement de l'Éditeur"
         }
       },
       {
-        "ref": "Pr", 
+        "ref": "Pr",
         "dts:dublincore": {
           "dc:title": "Préface"
         }
       },
       {
-        "ref": "1", 
+        "ref": "1",
         "dts:dublincore": {
           "dc:title": "Lettre 1"
         },
@@ -461,7 +458,7 @@ Example using *Les Liaisons Dangereuses* by Pierre Choderlos de Laclos
         }
       },
       {
-        "ref": "2", 
+        "ref": "2",
         "dts:dublincore": {
           "dc:title": "Lettre 2"
         },
@@ -471,7 +468,7 @@ Example using *Les Liaisons Dangereuses* by Pierre Choderlos de Laclos
         }
       },
       {
-        "ref": "3", 
+        "ref": "3",
         "dts:dublincore": {
           "dc:title": "Lettre 3"
         },
